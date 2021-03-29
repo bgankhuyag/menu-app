@@ -1,0 +1,28 @@
+.head{
+  display: grid;
+  grid-template-columns: 1fr 1fr repeat(3, 2fr) 1fr;
+  border-bottom: 1px solid grey;
+  margin-top: 20px;
+}
+
+.order-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr repeat(3, 2fr) 1fr;
+}
+
+.order-grid-item{
+  padding: 10px 0px;
+  border-bottom: 1px solid grey;
+}
+
+.done-button{
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.done-button:hover{
+  text-decoration: none;
+  color: white;
+}

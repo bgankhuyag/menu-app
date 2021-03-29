@@ -1,0 +1,44 @@
+.bases{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 20px;
+}
+
+img{
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.base-title{
+  font-size: 1.3em;
+}
+
+.title{
+  display: inline-block;
+}
+
+.parts{
+  margin-bottom: 20px;
+}
+
+.base-item{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button{
+  border-radius: 5px;
+  margin-left: 10px;
+  display: inline-block;
+  border: none;
+  font-size: 15px;
+  background-color: lightblue;
+  padding: 5px 20px;
+  color: black;
+}
+
+.button:hover,
+.button:focus{
+  text-decoration: none;
+  color: black;
+}

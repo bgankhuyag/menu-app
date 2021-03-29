@@ -1,0 +1,67 @@
+.bases{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+img{
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.base-item{
+  margin-top: 20px;
+}
+
+.base-title{
+  font-size: 1.3em;
+}
+
+.remove{
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+
+}
+
+.removeButton{
+  margin-top: 15px;
+}
+
+.remove:hover{
+  text-decoration: none;
+  color: white;
+}
+
+.title{
+  margin-top: 20px;
+}
+
+.condiment-item{
+  margin: 20px 0px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.topping-item{
+  margin: 20px 0px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.link-back{
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  font-size: 15px;
+  background-color: lightblue;
+  padding: 5px 20px;
+  color: black;
+}
+
+.link-back:hover,
+.link-back:focus{
+  text-decoration: none;
+  color: black;
+}

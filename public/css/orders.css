@@ -1,0 +1,50 @@
+.head{
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 2fr) 1fr 1fr;
+  margin-top: 20px;
+}
+
+
+.order-grid{
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 2fr) 1fr 1fr;
+  border-bottom: 1px solid grey;
+}
+
+.order-grid-item{
+  margin: 10px 0px;
+}
+
+.button{
+  float: right;
+  border: none;
+  font-size: 15px;
+  background-color: lightblue;
+  padding: 5px 20px;
+  color: black;
+}
+
+.button:hover,
+.button:focus{
+  text-decoration: none;
+  color: black;
+}
+
+.head{
+  border-bottom: 1px solid grey;
+}
+
+.orders{
+}
+
+.delete{
+  background-color: red;
+  color: white;
+  float: right;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.delete:hover{
+  color: white;
+}

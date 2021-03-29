@@ -130,7 +130,7 @@ ul ul,
 ol ul,
 ul ol {
   margin-bottom: 0;
-}
+}<title>Spicyo</title>
 
 dt {
   font-weight: 700;
@@ -3433,6 +3433,10 @@ input[type=button].btn-block {
   left: auto;
 }
 
+.dropdown-toggle:hover{
+  color: white;
+}
+
 @media (min-width: 576px) {
   .dropdown-menu-sm-left {
     right: auto;
@@ -4556,7 +4560,7 @@ input[type=button].btn-block {
   padding-top: 0.32rem;
   padding-bottom: 0.32rem;
   margin-right: 1rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: inherit;
   white-space: nowrap;
   color: white;

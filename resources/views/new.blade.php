@@ -17,10 +17,11 @@
       <div class="base-grid">
         @foreach ($bases as $base)
         <div class="base-item">
-          <input type="radio" id="{{$base->base}}" class="input" name="base" value="{{$base->base}}">
-          <label for="{{$base->base}}" class="input-label">{{$base->base}}</label><br>
-          <!-- <div class="base-title">{{$base->base}}</div> -->
+          <input type="radio" class="input radio" name="base" value="{{$base->base}}" id="{{$base->base}}" onClick="clicked(this.id)">
+          <label for="{{$base->base}}" class="input-label {{$base->base}} radio-label" >
           <div for="{{$base->base}}"><img src="{{asset('/storage/images/' . $base->images->name)}}" alt="{{$base->images->description}}" title="{{$base->images->description}}" width="200" /></div>
+          <div style="text-align: center;">{{$base->base}}</div>
+        </label>
         </div>
         @endforeach
       </div>
@@ -43,4 +44,20 @@
       <button type="submit" class="submit-button">Add Order</button>
     </form>
   </div>
+
+  <script>
+    function clicked(base) {
+      var item = document.getElementsByClassName('radio');
+      for (var i = 0; i < item.length; i++) {
+        if (item[i].checked) {
+          console.log(item[i].id);
+          document.getElementsByClassName(item[i].id)[0].style.border = "2px solid red";
+        } else {
+          document.getElementsByClassName(item[i].id)[0].style.border = "none";
+        }
+      }
+      console.log(item);
+      console.log(base);
+    }
+  </script>
 @endsection

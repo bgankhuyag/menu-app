@@ -6,7 +6,7 @@
 
 @section('content')
   <div class="container">
-    <h3 class="title">Bases</h3>
+    <h3 class="admin-title">Bases</h3>
     <a href="{{route('editBasesPage')}}" class="button">Edit Bases ></a>
     <div class="bases parts">
       @foreach($bases as $base)
@@ -16,7 +16,7 @@
       </div>
       @endforeach
     </div>
-    <h3 class="title">Condiments</h3>
+    <h3 class="admin-title">Condiments</h3>
     <a href="{{route('editCondimentsPage')}}" class="button">Edit Condiments ></a>
     <div class="condiments parts">
       @foreach ($condiments as $condiment)
@@ -25,7 +25,7 @@
       </div>
       @endforeach
     </div>
-    <h3 class="title">Toppings</h3>
+    <h3 class="admin-title">Toppings</h3>
     <a href="{{route('editToppingsPage')}}" class="button">Edit Toppings ></a>
     <div class="toppings parts">
       @foreach ($toppings as $topping)

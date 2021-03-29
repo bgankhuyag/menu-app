@@ -20,12 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('pending_orders', [HomeController::class, 'pendingOrders'])->name('pendingOrders');
 Route::middleware('auth:api')->group(function () {
   Route::get('/home', [HomeController::class, 'home'])->name('home');
   Route::get('/new', [HomeController::class, 'newOrder'])->name('new');
   Route::post('/add_new', [HomeController::class, 'addNewOrder'])->name('addNewOrder');
   Route::get('/remove/{id}', [HomeController::class, 'remove'])->name('remove');
+  Route::post('pending_orders', [HomeController::class, 'pendingOrders'])->name('pendingOrders');
 
   Route::group(['prefix' => 'admin', 'middleware' => 'checkRole:api'], function () {
     Route::get('/', [HomeController::class, 'adminPage'])->name('adminPage');

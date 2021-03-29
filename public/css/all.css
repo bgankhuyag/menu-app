@@ -20,6 +20,8 @@
   color: white;
   border-radius: 5px;
   padding: 5px 10px;
+  float: right;
+  margin-right: 10px;
 }
 
 .done-button:hover{

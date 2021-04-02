@@ -4,13 +4,14 @@
   text-align: center;
 }
 
-img{
-  border-radius: 5px;
-  border: 2px solid black;
-}
-
 .base-item{
   margin-top: 20px;
+}
+
+.base-image{
+  width: 250px;
+  height: 200px;
+  object-fit: scale-down;
 }
 
 .base-title{
@@ -19,23 +20,46 @@ img{
 
 .remove{
   padding: 5px 10px;
-  background-color: red;
+  background-color: transparent;
+  border: 1px solid white;
   color: white;
   border-radius: 5px;
+  transition: all .2s ease-in-out;
+  font-size: 15px;
+}
 
+.remove:hover{
+  text-decoration: none;
+  color: white;
+  background-color: red;
+  border: 1px solid red;
+}
+
+.edit{
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  transition: all .2s ease-in-out;
+  font-size: 15px;
+}
+
+.edit:hover{
+  text-decoration: none;
+  color: black;
+  background-color: lightblue;
+  border: 1px solid lightblue;
 }
 
 .removeButton{
   margin-top: 15px;
 }
 
-.remove:hover{
-  text-decoration: none;
-  color: white;
-}
-
 .title{
   margin-top: 20px;
+  padding-top: 40px;
 }
 
 .condiment-item{
@@ -50,18 +74,61 @@ img{
   grid-template-columns: 1fr 5fr;
 }
 
+.add-button{
+  border-radius: 5px;
+  padding: 5px 20px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  font-size: 15px;
+  transition: all .2s ease-in-out;
+}
+
+.add-button:hover,
+.add-button:active{
+  text-decoration: none;
+  color: black;
+  background-color: #68cf5f;
+  border: 1px solid #68cf5f;
+}
+
 .link-back{
   border-radius: 5px;
+  margin-left: 10px;
   display: inline-block;
   border: none;
   font-size: 15px;
-  background-color: lightblue;
+  background-color: transparent;
   padding: 5px 20px;
-  color: black;
+  color: white;
+  border: 1px solid white;
+  transition: all .2s ease-in-out;
 }
 
 .link-back:hover,
 .link-back:focus{
   text-decoration: none;
   color: black;
+  background-color: lightblue;
+  border: 1px solid lightblue;
+}
+
+form{
+  width: 500px;
+}
+
+.form-item{
+  display: grid;
+  margin-bottom: 10px;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 20px;
+}
+
+label {
+  text-align: right;
+}
+
+.edit-base{
+  text-align: center;
 }

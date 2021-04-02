@@ -4435,13 +4435,19 @@ input[type=button].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   color: white;
+  border: 1px solid white;
+  transition: all .3s ease-in-out;
+  margin-left: 10px;
 }
 
 .nav-link:hover,
 .nav-link:focus {
   text-decoration: none;
+  color: black;
+  background-color: #e3d105;
+  border-color: #e3d105;
 }
 
 .nav-link.disabled {
@@ -4543,7 +4549,7 @@ input[type=button].btn-block {
   padding-top: 0.32rem;
   padding-bottom: 0.32rem;
   margin-right: 1rem;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   line-height: inherit;
   white-space: nowrap;
   color: white;
@@ -5046,6 +5052,8 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  /* background-color: #727c87; */
+  /* color: white; */
 }
 
 .card-title {
@@ -5070,9 +5078,12 @@ input[type=button].btn-block {
 }
 
 .card-header {
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  /* text-align: center; */
+  font-size: 2rem;
+  color: white;
+  background-color: #343a40;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 

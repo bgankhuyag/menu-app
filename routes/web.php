@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
   return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware(['auth'])->group(function () {
   Route::get('/home', [HomeController::class, 'home'])->name('home');
@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
       Route::get('/condiments', [HomeController::class, 'editCondimentsPage'])->name('editCondimentsPage');
       Route::get('/toppings', [HomeController::class, 'editToppingsPage'])->name('editToppingsPage');
       Route::get('/delete_base/{id}', [HomeController::class, 'removeBase'])->name('removeBase');
+      Route::get('/edit_base_page/{id}', [HomeController::class, 'editSelectedBase'])->name('editSelectedBase');
       Route::get('/delete_condiment/{id}', [HomeController::class, 'removeCondiment'])->name('removeCondiment');
       Route::get('/delete_topping/{id}', [HomeController::class, 'removeTopping'])->name('removeTopping');
       Route::post('/new_base', [HomeController::class, 'newBase'])->name('newBase');

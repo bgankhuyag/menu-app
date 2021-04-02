@@ -27,19 +27,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   @auth
                   <a class="navbar-brand" href="{{ route('home') }}">
-                    {{ __('View Done Orders') }}
+                    {{ __('Done Orders') }}
                   </a>
                   <a class="navbar-brand" href="{{ route('pendingOrders') }}">
-                    {{ __('View Pending Orders') }}
+                    {{ __('Pending Orders') }}
                   </a>
                   <a class="navbar-brand" href="{{ route('new') }}">
                     {{ __('Add New Order') }}
                   </a>
                     @if (Auth::user()->role == 'admin')
                       <a class="navbar-brand" href="{{ route('all') }}">
-                        {{ __('View All Orders') }}
+                        {{ __('All Orders') }}
                       </a>
                     @endif
+                  @else
+                  <a class="navbar-brand-right" href="{{ route('welcome') }}">
+                    {{ config('app.name', 'Menu App') }}
+                  </a>
                   @endauth
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">

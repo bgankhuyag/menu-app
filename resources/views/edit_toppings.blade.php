@@ -6,15 +6,15 @@
 
 @section('content')
 <div class="container">
-  <a href="{{route('adminPage')}}" class="link-back">< Back</a>
+  <a href="{{route('adminPage')}}" class="link-back">Back</a>
   <h3 class="title">Add Toppings</h3>
   <form action="{{route('newTopping')}}" method="post">
     @csrf
     <div class="form-item">
-      <label for="topping">Topping Name </label>
+      <label for="topping">Topping Name: </label>
       <input type="text" id="topping" name="topping" /><br>
     </div>
-    <button type="submit">Add</button>
+    <button type="submit" class="add-button float-right">Add</button>
   </form>
   <h3 class="title">Toppings</h3>
   <div class="topping">

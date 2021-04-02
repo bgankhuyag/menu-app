@@ -4,11 +4,6 @@
   margin-top: 20px;
 }
 
-img{
-  border-radius: 5px;
-  border: 2px solid black;
-}
-
 .base-title{
   font-size: 1.3em;
 }
@@ -26,19 +21,29 @@ img{
   margin-top: 20px;
 }
 
+.base-image{
+  width: 250px;
+  height: 200px;
+  object-fit: scale-down;
+}
+
 .button{
   border-radius: 5px;
   margin-left: 10px;
   display: inline-block;
   border: none;
   font-size: 15px;
-  background-color: lightblue;
+  background-color: transparent;
   padding: 5px 20px;
-  color: black;
+  color: white;
+  border: 1px solid white;
+  transition: all .2s ease-in-out;
 }
 
 .button:hover,
 .button:focus{
   text-decoration: none;
   color: black;
+  background-color: lightblue;
+  border: 1px solid lightblue;
 }

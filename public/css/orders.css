@@ -18,6 +18,7 @@
 .button{
   float: right;
   border: none;
+  border-radius: 5px;
   font-size: 15px;
   background-color: lightblue;
   padding: 5px 20px;
@@ -47,4 +48,72 @@
 
 .delete:hover{
   color: white;
+}
+
+
+.orders-cards{
+  /* text-align: center; */
+  /* width: 400px; */
+  margin: auto;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+}
+
+.order-card{
+  width: 400px;
+  margin: auto;
+  margin-top: 30px;
+  /* margin-bottom: 30px; */
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.order-image{
+  margin: auto;
+  width: 250px;
+}
+
+.order-image-item{
+  width: 250px;
+  height: 200px;
+  object-fit: scale-down;
+}
+
+.order-button{
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.order-card-label{
+  text-align: right;
+  font-weight: bold;
+}
+
+.order-card-item{
+  margin: 10px 0px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 10px;
+}
+
+.done-button{
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.done-button:hover{
+  text-decoration: none;
+  color: white;
+}
+
+.header{
+  width: 500px;
+  margin: auto;
+  margin-bottom: 20px;
 }

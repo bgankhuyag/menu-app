@@ -9,8 +9,8 @@
     <form action="{{route('addNewOrder')}}" method="post">
       @csrf
       @if($errors->any())
-        <div class="error">
-          <h4>{{$errors->first()}}</h4>
+        <div>
+          <h4 class="error">{{$errors->first()}}</h4>
         </div>
       @endif
       <h5>Base</h5>
@@ -19,9 +19,10 @@
         <div class="base-item">
           <input type="radio" class="input radio" name="base" value="{{$base->base}}" id="{{$base->base}}" onClick="clicked(this.id)">
           <label for="{{$base->base}}" class="input-label {{$base->base}} radio-label" >
-          <div for="{{$base->base}}"><img src="{{asset('/storage/images/' . $base->images->name)}}" alt="{{$base->images->description}}" title="{{$base->images->description}}" width="200" /></div>
-          <div style="text-align: center;">{{$base->base}}</div>
+          <div class="image-container" for="{{$base->base}}"><img src="{{asset('/storage/images/' . $base->images->name)}}" alt="{{$base->images->description}}" title="{{$base->images->description}}" width="200" /></div>
         </label>
+        <div class="name">{{$base->base}}</div>
+        <div class="name">₮{{$base->price}}</div>
         </div>
         @endforeach
       </div>
@@ -51,9 +52,9 @@
       for (var i = 0; i < item.length; i++) {
         if (item[i].checked) {
           console.log(item[i].id);
-          document.getElementsByClassName(item[i].id)[0].style.border = "2px solid red";
+          document.getElementsByClassName(item[i].id)[0].style.border = "4px solid #e3d105";
         } else {
-          document.getElementsByClassName(item[i].id)[0].style.border = "none";
+          document.getElementsByClassName(item[i].id)[0].style.border = "4px solid #212020";
         }
       }
       console.log(item);

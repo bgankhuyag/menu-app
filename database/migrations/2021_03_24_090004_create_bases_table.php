@@ -16,6 +16,7 @@ class CreateBasesTable extends Migration
         Schema::create('bases', function (Blueprint $table) {
             $table->id();
             $table->string('base');
+            $table->integer('price');
             $table->timestamps();
         });
     }

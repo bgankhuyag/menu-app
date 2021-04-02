@@ -27,7 +27,7 @@ class HomeController extends Controller
   public function home() {
     $user_id = Auth::id();
     // $orders = Orders::where('users_id', $user_id)->where('done', false)->with('condiments', 'toppings')->get();
-    $orders = Orders::where('users_id', $user_id)->where('done', true)->with('condiments', 'toppings')->orderBy('updated_at')->get();
+    $orders = Orders::where('users_id', $user_id)->where('done', true)->with('bases.images', 'condiments', 'toppings')->orderBy('updated_at')->paginate(6);
     // dd($orders);
     return view('home', ['orders' => $orders]);
   }
@@ -47,7 +47,9 @@ class HomeController extends Controller
     if (empty($request->input('base'))){
       return redirect()->back()->withErrors(['Please Select an Entree']);
     }
-    $order->order = $request->input('base');
+    $base = Base::firstWhere('base', $request->input('base'));
+    $order->order = $base->base;
+    $order->bases_id = $base->id;
     $order->save();
     if (!empty($request->input('condiments'))){
       $condiments = $request->input('condiments');
@@ -87,7 +89,7 @@ class HomeController extends Controller
 
   // return view for admin
   public function all() {
-    $orders = Orders::where('done', false)->with('condiments', 'toppings', 'users')->orderBy('created_at')->get();
+    $orders = Orders::where('done', false)->with('bases.images', 'condiments', 'toppings', 'users')->orderBy('created_at')->paginate(6);
     // dd($orders);
     return view('all', ['orders' => $orders]);
   }
@@ -103,7 +105,8 @@ class HomeController extends Controller
   public function pendingOrders(array $headers = []) {
     // dd('here');
     $user_id = Auth::id();
-    $orders = Orders::where('users_id', $user_id)->where('done', false)->with('condiments', 'toppings')->orderBy('created_at')->get();
+    $orders = Orders::where('users_id', $user_id)->where('done', false)->with('bases.images', 'condiments', 'toppings')->orderBy('created_at')->paginate(6);
+    // dd($orders);
     return view('pending_orders', ['orders' => $orders]);
     // return response("hello");
   }
@@ -113,7 +116,7 @@ class HomeController extends Controller
     $toppings = AllToppings::all();
     $condiments = AllCondiments::all();
     $bases = Base::with('images')->get();
-    // dd($bases[0]->images->name);
+    // dd($bases);
     return view('admin', ['toppings' => $toppings, 'condiments' => $condiments, 'bases' => $bases]);
   }
 
@@ -143,11 +146,17 @@ class HomeController extends Controller
     return redirect()->route('editBasesPage');
   }
 
+  public function editSelectedBase($id) {
+    $base = Base::where('id', $id)->with('images')->first();
+    return view('edit_base', ['base' => $base]);
+  }
+
   public function newBase(Request $request) {
     $imageName = time().'-'.$request->file('baseImage')->getClientOriginalName();
     $request->file('baseImage')->storeAs('public/images', $imageName);
     $base = new Base;
     $base->base = $request->input('base');
+    $base->price = $request->input('price');
     $base->save();
     $image = new Images;
     $image->bases_id = $base->id;

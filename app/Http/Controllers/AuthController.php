@@ -16,9 +16,9 @@ class AuthController extends Controller
     ]);
     if ($validator->fails()) {
       $data = ['error' => $validator->errors()->toJson(), 'success' => false];
-      return response()->json($data, 422);
+      return response()->json($data, 400);
     }
-    if (!auth('api')->attempt($validator->validated())) {
+    if (!auth()->attempt($validator->validated())) {
       return response(['error_message' => 'Incorrect Credentials. Please try again']);
     }
     $token = auth()->user()->createToken('API Token')->accessToken;

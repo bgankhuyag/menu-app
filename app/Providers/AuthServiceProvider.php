@@ -26,8 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Passport::routes();
         if (! $this->app->routesAreCached()) {
-            Passport::routes();
         }
         // Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
     }

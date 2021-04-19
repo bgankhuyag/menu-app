@@ -28,7 +28,7 @@ class HomeController extends Controller
     $user_id = Auth::id();
     // $orders = Orders::where('users_id', $user_id)->where('done', false)->with('condiments', 'toppings')->get();
     $orders = Orders::where('users_id', $user_id)->where('done', true)->with('bases.images', 'condiments', 'toppings')->orderBy('updated_at')->paginate(6);
-    // dd($orders);
+    // dd(public_path('css/app.css'));
     return view('home', ['orders' => $orders]);
   }
 

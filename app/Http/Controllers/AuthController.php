@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -17,9 +18,8 @@ class AuthController extends Controller
       $data = ['error' => $validator->errors()->toJson(), 'success' => false];
       return response()->json($data, 422);
     }
-    $data = $request->only('email', 'password');
-    if (!auth()->attempt($data)) {
-        return response(['error_message' => 'Incorrect Credentials. Please try again']);
+    if (!auth('api')->attempt($validator->validated())) {
+      return response(['error_message' => 'Incorrect Credentials. Please try again']);
     }
     $token = auth()->user()->createToken('API Token')->accessToken;
     return response(['user' => auth()->user(), 'token' => $token]);

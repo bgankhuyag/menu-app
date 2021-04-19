@@ -18,6 +18,7 @@ class AuthController extends Controller
       $data = ['error' => $validator->errors()->toJson(), 'success' => false];
       return response()->json($data, 400);
     }
+    // dd(auth()->user());
     if (!auth()->attempt($validator->validated())) {
       return response(['error_message' => 'Incorrect Credentials. Please try again']);
     }

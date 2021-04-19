@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Laravel\Passport\HasApiTokens;
 use Validator;
 
 class AuthController extends Controller
@@ -18,8 +19,9 @@ class AuthController extends Controller
       $data = ['error' => $validator->errors()->toJson(), 'success' => false];
       return response()->json($data, 400);
     }
-    // dd(auth()->user());
-    if (!auth()->attempt($validator->validated())) {
+    $token = auth('api')->attempt($validator->validated());
+    dd($token);
+    if (!auth('web')->attempt($validator->validated())) {
       return response(['error_message' => 'Incorrect Credentials. Please try again']);
     }
     $token = auth()->user()->createToken('API Token')->accessToken;

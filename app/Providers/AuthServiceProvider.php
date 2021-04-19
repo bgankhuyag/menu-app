@@ -29,6 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
         if (! $this->app->routesAreCached()) {
         }
+        Passport::enableImplicitGrant();
         // Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
     }
 }

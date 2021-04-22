@@ -30,11 +30,11 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors(), 'success' => false]);
+            return response()->json(['error' => 'Inputs are invalid', 'success' => false]);
         }
 
         if (! $token = auth()->attempt($validator->validated())) {
-            return response()->json(['error' => 'Unauthorized', 'success' => false]);
+            return response()->json(['error' => 'Credentials do not match our records', 'success' => false]);
         }
 
         return $this->createNewToken($token);

@@ -23,6 +23,11 @@ class HomeController extends Controller
     $this->middleware('auth');
   }
 
+  public function images(Request $request) {
+    $images = Images::take(5)->get('name');
+    return response()->json($images);
+  }
+
   // return view for user with their orders
   public function home() {
     $user_id = Auth::id();

@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Images extends Model
 {
     use HasFactory;
-    protected $table = 'images'; 
+    protected $table = 'images';
+
+    protected $appends = ['name'];
+
+    public function getNameAttribute() {
+      return url(asset('storage/images')) . '/' . $this->attributes['name'];
+    }
 }

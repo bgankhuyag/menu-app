@@ -30,11 +30,11 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            return response()->json(['error' => $validator->errors(), 'success' => false]);
         }
 
         if (! $token = auth()->attempt($validator->validated())) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Unauthorized', 'success' => false]);
         }
 
         return $this->createNewToken($token);
@@ -75,7 +75,6 @@ class AuthController extends Controller
      */
     public function logout() {
         auth()->logout();
-
         return response()->json(['message' => 'User successfully signed out']);
     }
 

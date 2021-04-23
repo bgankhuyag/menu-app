@@ -19,7 +19,7 @@
         <div class="base-item">
           <input type="radio" class="input radio" name="base" value="{{$base->base}}" id="{{$base->base}}" onClick="clicked(this.id)">
           <label for="{{$base->base}}" class="input-label {{$base->base}} radio-label" >
-          <div class="image-container" for="{{$base->base}}"><img src="{{asset('/storage/images/' . $base->images->name)}}" alt="{{$base->images->description}}" title="{{$base->images->description}}" width="200" /></div>
+          <div class="image-container" for="{{$base->base}}"><img src="{{asset('/storage/images/' . $base->images->getRawOriginal('name'))}}" alt="{{$base->images->description}}" title="{{$base->images->description}}" width="200" /></div>
         </label>
         <div class="name">{{$base->base}}</div>
         <div class="name">₮{{$base->price}}</div>

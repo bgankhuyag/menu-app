@@ -32,10 +32,10 @@ Route::group([
     // Route::post('/user-profile', [AuthController::class, 'userProfile']);
 });
 
+Route::post('/images', [HomeController::class, 'images']);
 
 Route::middleware('auth:api')->group(function () {
-  Route::post('/images', [HomeController::class, 'images']);
-
+  Route::post('/menu', [HomeController::class, 'menu']);
   Route::get('/home', [HomeController::class, 'home'])->name('home');
   Route::get('/new', [HomeController::class, 'newOrder'])->name('new');
   Route::post('/add_new', [HomeController::class, 'addNewOrder'])->name('addNewOrder');

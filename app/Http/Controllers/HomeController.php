@@ -20,12 +20,20 @@ class HomeController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('auth');
+    // $this->middleware('auth');
   }
 
   public function images(Request $request) {
-    $images = Images::take(5)->get('name');
+    $images = Images::inRandomOrder()->take(3)->get('name');
     return response()->json($images);
+  }
+
+  public function menu(Request $request) {
+    $toppings = AllToppings::all();
+    $condiments = AllCondiments::all();
+    $bases = Base::with('images')->get();
+    $data = ['bases' => $bases, 'condiments' => $condiments, 'toppings' => $toppings];
+    return response()->json($data);
   }
 
   // return view for user with their orders
